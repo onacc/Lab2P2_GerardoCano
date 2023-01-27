@@ -13,6 +13,15 @@ import java.awt.Color;
 public class Casa {
     private int numcasa,numbloque,numbath,numcuart,ancho,largo;
     private Color color; 
+    private String Estado;
+
+    public String getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(String Estado) {
+        this.Estado = Estado;
+    }
 
     public Casa() {
     }
@@ -83,7 +92,8 @@ public class Casa {
         this.color = color;
     }
     public String toString(){
-        return "Numero de casa "+numcasa+"\n"+"Numero de bloque "+numbloque+"\n"+"Numero de baños "+numbath+"\n"+"Numero de Cuartos "+numcuart+"\n"+"Ancho "+ancho+"\n"+"Largo "+largo;
+        return "Numero de casa "+numcasa+"\n"+"Numero de bloque "+numbloque+"\n"+"Numero de baños "
+                +numbath+"\n"+"Numero de Cuartos "+numcuart+"\n"+"Ancho "+ancho+"\n"+"Largo "+largo+"\n"+"Estado "+Estado;
     }
     
 }

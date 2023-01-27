@@ -61,10 +61,10 @@ static Scanner read = new Scanner (System.in);
                                         builds.add(newCasa());
                                     break;
                                     case 2:
-                                        builds.add(o);
+                                        builds.add(newEdificio());
                                     break;
                                     case 3:
-                                        builds.add(o);
+                                        builds.add(newSolar());
                                     break;
                                 }
                             }break;   
@@ -74,20 +74,38 @@ static Scanner read = new Scanner (System.in);
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
                                 System.out.println("3.Solares");
+                                System.out.println("4.Listar todo");
                                 o = read.nextInt();
                                 switch (o){
                                     case 1:
-                                        String s="";
+                                        String casas="";
                                         for (Object t : builds) {
                                             if(t instanceof Casa){
-                                                s+=""+builds.indexOf(t)+"- "+t+"\n";
+                                                casas+=""+builds.indexOf(t)+"- "+t+"\n";
                                             }
                                         }
-                                        System.out.println(s);
+                                        System.out.println(casas);
                                     break;
                                     case 2:
+                                        String edif="";
+                                        for (Object t : builds) {
+                                            if(t instanceof Edificio){
+                                                edif+=""+builds.indexOf(t)+"- "+t+"\n";
+                                            }
+                                        }
+                                        System.out.println(edif);
                                     break;
                                     case 3:
+                                        String Solar="";
+                                        for (Object t : builds) {
+                                            if(t instanceof Solar){
+                                                Solar+=""+builds.indexOf(t)+"- "+t+"\n";
+                                            }
+                                        }
+                                        System.out.println(Solar);
+                                    break;
+                                    case 4:
+                                        System.out.println(builds);
                                     break;
                                 }
                             }    
@@ -186,5 +204,24 @@ static Scanner read = new Scanner (System.in);
         int cuart = read.nextInt();
         Casa retorno = new Casa(casa,bloque,ban,cuart,ancho,largo,c);
         return retorno;
+    }
+    static Edificio newEdificio(){
+        System.out.println("Ingrese Numero de pisos");
+        int pisos = read.nextInt();
+        System.out.println("Ingrese cantidad de locales");
+        int local = read.nextInt();
+        System.out.println("Ingrese Direccion por referencia");
+        read.next();
+        String dir = read.next();
+        Edificio e = new Edificio(pisos,local,dir);
+        return e;
+    }
+    static Solar newSolar(){
+        System.out.println("Ingrese largo");
+        int largo = read.nextInt();
+        System.out.println("Ingrese ancho");
+        int ancho = read.nextInt();
+        Solar s = new Solar(ancho,largo);
+        return s;
     }
 }
