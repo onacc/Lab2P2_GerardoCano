@@ -23,23 +23,39 @@ static Scanner read = new Scanner (System.in);
         String password = "admin1234";
         Usuario u = new Usuario(usuario,password);
         ArrayList<Usuario> users = new ArrayList();
+        users.add(u);
         //arraylist para edificios, casa, colares
         ArrayList builds = new ArrayList();
         //System.out.println(u);
-        int op = 0;
+        int log;
+        do{
+        System.out.println("Bienvenido");
+        System.out.println("1.Login");
+        System.out.println("2.Sign up");
+        System.out.println("3.Salir");
+        log = read.nextInt();
+        switch(log){
+            case 1:
+                
+                System.out.println("Ingrese usuario ");
+                String user = read.next();
+                System.out.println("Ingrese contrasena");
+                String pass = read.next();
+                Usuario c = new  Usuario(user,pass);
+                
+                    if (users.contains(c)){
+                        int op = 0;
         do{
             System.out.println("Menu");
             System.out.println("1.Registro de inmueble");
             System.out.println("2.Manejo de Estados");
-            System.out.println("3.Login");
-            System.out.println("4.Sign up");
-            System.out.println("5.Salir");
+            System.out.println("3.Salir");
             op = read.nextInt();
             switch(op){
                 case 1:
                     System.out.println("Ingrese contraseña de administrador");
-                    String pass = read.next();
-                    if(pass.equals(u.getContra())){
+                    String passi = read.next();
+                    if(passi.equals(u.getContra())){
                         
                         System.out.println("Ingrese una opcion");
                         System.out.println("1.Crear Casas/Edificios/Solares");
@@ -119,6 +135,13 @@ static Scanner read = new Scanner (System.in);
                                 o = read.nextInt();
                                 switch (o){
                                     case 1:
+                                        System.out.println("Ingrese la posicion a modificar");
+                                        int p = read.nextInt();
+                                        if( p>=0& p<builds.size()&&builds.get(p)instanceof Casa ){
+                                            
+                                        }else{
+                                            System.out.println("La posicion no es valida");
+                                        }
                                     break;
                                     case 2:
                                     break;
@@ -146,8 +169,25 @@ static Scanner read = new Scanner (System.in);
                                     }
                                     break;
                                     case 2:
+                                        System.out.println("Ingrese la posicion de edificio a eliminar ");
+                                        int pos = read.nextInt();
+                                         if( pos>=0& pos<builds.size()&&builds.get(pos)instanceof Edificio ){
+                                            builds.remove(pos);
+                                             System.out.println("Eliminado correctamente");
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
                                     break;
                                     case 3:
+                                        System.out.println("Ingrese la posicion de solar a eliminar ");
+                                        int popo = read.nextInt();
+                                         if( popo>=0& popo<builds.size()&&builds.get(popo)instanceof Solar ){
+                                            builds.remove(popo);
+                                             System.out.println("Eliminado correctamente");
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
+
                                     break;
                                 }
                             }
@@ -177,14 +217,20 @@ static Scanner read = new Scanner (System.in);
                 case 2:
                 break;
                 case 3:
-                break;
-                case 4:
-                break;
-                case 5:
-                    System.out.println("Salir");
-                break;
+                     System.out.println("Salir");
             }
         }while(op!=5);
+                    }else{
+                        System.out.println("Usuario invalido");
+                    }
+                
+            break;
+            case 2: 
+                users.add(newUsuario());
+            break;
+            
+        }
+        }while (log!=3);
         
     }//fin main
     static Casa newCasa(){
@@ -223,5 +269,17 @@ static Scanner read = new Scanner (System.in);
         int ancho = read.nextInt();
         Solar s = new Solar(ancho,largo);
         return s;
+    }
+    static Usuario newUsuario(){
+        System.out.println("Ingrese nombre");
+        String nombre = read.next();
+        System.out.println("Ingrese edad");
+        int e = read.nextInt();
+        System.out.println("Ingrese nombre de usuario");
+        String user = read.next();
+        System.out.println("Ingrese contraseña");
+        String contra =read.next();
+        Usuario retorno = new Usuario(nombre,user,contra,e);
+        return retorno;
     }
 }

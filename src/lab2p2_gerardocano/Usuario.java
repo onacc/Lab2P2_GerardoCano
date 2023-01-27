@@ -12,6 +12,9 @@ class Usuario {
     private String Nombre,username,Contra;
 private int edad;
 
+    public Usuario() {
+    }
+
     public Usuario(String Nombre, String username, String Contra, int edad) {
         this.Nombre = Nombre;
         this.username = username;
