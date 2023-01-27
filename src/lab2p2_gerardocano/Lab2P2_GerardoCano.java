@@ -41,10 +41,12 @@ static Scanner read = new Scanner (System.in);
                 String user = read.next();
                 System.out.println("Ingrese contrasena");
                 String pass = read.next();
-                Usuario c = new  Usuario(user,pass);
-                
-                    if (users.contains(c)){
+                boolean wawa = false;
+                wawa = verif(user,pass,users);
+                    if (wawa==true){
                         int op = 0;
+                        
+                        
         do{
             System.out.println("Menu");
             System.out.println("1.Registro de inmueble");
@@ -282,4 +284,16 @@ static Scanner read = new Scanner (System.in);
         Usuario retorno = new Usuario(nombre,user,contra,e);
         return retorno;
     }
+    static boolean verif(String cad, String pas, ArrayList<Usuario> usuario){
+       boolean verf = false;
+        for (int i = 0; i < usuario.size(); i++) {
+            if(usuario.get(i).getUsername().equals(cad)){
+                if(usuario.get(i).getContra().equals(pas)){
+                    verf = true;
+                }
+        }
+        }
+        return verf;
+    }
+    
 }
