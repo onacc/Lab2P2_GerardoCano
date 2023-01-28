@@ -26,15 +26,16 @@ static Scanner read = new Scanner (System.in);
         users.add(u);
         //arraylist para edificios, casa, colares
         ArrayList builds = new ArrayList();
-        //System.out.println(u);
         int log;
         do{
         System.out.println("");
+        System.out.println("-------------");
         System.out.println("Menu Principal");
         System.out.println("Bienvenido");
         System.out.println("1.Login");
         System.out.println("2.Sign up");
         System.out.println("3.Salir");
+        System.out.println("-------------");
         log = read.nextInt();
         switch(log){
             case 1:
@@ -44,36 +45,42 @@ static Scanner read = new Scanner (System.in);
                 System.out.println("Ingrese contrasena");
                 String pass = read.next();
                 boolean wawa = false;
-                wawa = verif(user,pass,users);
+                wawa = verif(user,pass,users);//metodo para verificar logins
                     if (wawa==true){
                         int op = 0;
                         
                         
         do{
+            System.out.println("");
+            System.out.println("-------------");
             System.out.println("Menu");
             System.out.println("1.Registro de inmueble");
             System.out.println("2.Manejo de Estados");
-            System.out.println("3.Salir");
+            System.out.println("3.Cerrar Sesion");
+            System.out.println("-------------");
             op = read.nextInt();
             switch(op){
                 case 1:
                 
-                    
-                        
+                    //opcion 1 entrar
+                        System.out.println("-------------");
                         System.out.println("Ingrese una opcion");
                         System.out.println("1.Crear Casas/Edificios/Solares");
                         System.out.println("2.Listar Casas/Edificios/Solares");
                         System.out.println("3.Modificar Casas/Edficios/Solares");
                         System.out.println("4.Borrar Casas/Edficios/Solares");
                         System.out.println("5.Comprar Casas/Edficios/Solares");
+                        System.out.println("-------------");
                         int ops = read.nextInt();
                         switch(ops){
                             case 1:{
                                 int o=0;
+                                System.out.println("-------------");
                                 System.out.println("Desea Crear...");
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
                                 System.out.println("3.Solares");
+                                System.out.println("-------------");
                                 o = read.nextInt();
                                 switch (o){
                                     case 1:
@@ -89,6 +96,7 @@ static Scanner read = new Scanner (System.in);
                             }break;   
                             case 2:{
                                  int o=0;
+                                System.out.println("-------------");
                                 System.out.println("Desea Listar...");
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
@@ -131,10 +139,12 @@ static Scanner read = new Scanner (System.in);
                             break;
                             case 3:{
                                  int o=0;
+                                System.out.println("-------------");     
                                 System.out.println("Desea Modificar...");
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
                                 System.out.println("3.Solares");
+                                System.out.println("-------------");
                                 o = read.nextInt();
                                 switch (o){
                                     case 1:
@@ -163,10 +173,12 @@ static Scanner read = new Scanner (System.in);
                             break;
                             case 4:{
                                  int o=0;
+                                System.out.println("-------------");
                                 System.out.println("Desea Borrar...");
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
                                 System.out.println("3.Solares");
+                                System.out.println("-------------");
                                 o = read.nextInt();
                                 switch (o){
                                     case 1:
@@ -205,10 +217,12 @@ static Scanner read = new Scanner (System.in);
                             break;
                             case 5:{
                                  int o=0;
+                                System.out.println("-------------");
                                 System.out.println("Desea Comprar...");
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
                                 System.out.println("3.Solares");
+                                System.out.println("-------------");
                                 o = read.nextInt();
                                 switch (o){
                                    case 1:
@@ -290,22 +304,25 @@ static Scanner read = new Scanner (System.in);
                     }
                 break;
                 case 3:
-                     System.out.println("Salir");
+                     System.out.println("Regresando al menu principal");
             }
-        }while(op!=3);
+        }while(op!=3);//regresar menu prin
                     }else{
                         System.out.println("Usuario invalido");
                     }
                 
             break;
+            //crear user
             case 2: 
                 users.add(newUsuario());
             break;
             
         }
-        }while (log!=3);
+        }while (log!=3);//sale menu principal
         
     }//fin main
+    
+    //metodo para agregar casa
     static Casa newCasa(){
         Color c;
         System.out.println("Ingrese Numero de casa ");
@@ -324,6 +341,7 @@ static Scanner read = new Scanner (System.in);
         Casa retorno = new Casa(casa,bloque,ban,cuart,ancho,largo,c);
         return retorno;
     }
+    //metodo para agregar edificio
     static Edificio newEdificio(){
         System.out.println("Ingrese Numero de pisos");
         int pisos = read.nextInt();
@@ -335,6 +353,7 @@ static Scanner read = new Scanner (System.in);
         Edificio e = new Edificio(pisos,local,dir);
         return e;
     }
+    //metodo para agregar solar
     static Solar newSolar(){
         System.out.println("Ingrese largo");
         int largo = read.nextInt();
@@ -343,6 +362,7 @@ static Scanner read = new Scanner (System.in);
         Solar s = new Solar(ancho,largo);
         return s;
     }
+    //metodo para agregar usuario(sign up)
     static Usuario newUsuario(){
         System.out.println("Ingrese nombre");
         
@@ -356,6 +376,7 @@ static Scanner read = new Scanner (System.in);
         Usuario retorno = new Usuario(nombre,user,contra,e);
         return retorno;
     }
+    //meotodo para verificar si el usuario esta en el arraylist de usuarios
     static boolean verif(String cad, String pas, ArrayList<Usuario> usuario){
        boolean verf = false;
         for (int i = 0; i < usuario.size(); i++) {
@@ -367,6 +388,7 @@ static Scanner read = new Scanner (System.in);
         }
         return verf;
     }
+    //imprimir arraylist no tipada de objetos con su indice y elementos
     static void printlist(ArrayList builds){
         for (int i = 0; i < builds.size(); i++) {
             System.out.println(i+". "+builds.get(i));
