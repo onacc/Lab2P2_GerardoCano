@@ -92,7 +92,7 @@ public class Casa {
         this.color = color;
     }
     public String toString(){
-        return "Numero de casa "+numcasa+"\n"+"Numero de bloque "+numbloque+"\n"+"Numero de baños "
+        return "Casa"+"\n"+"Numero de casa "+numcasa+"\n"+"Numero de bloque "+numbloque+"\n"+"Numero de baños "
                 +numbath+"\n"+"Numero de Cuartos "+numcuart+"\n"+"Ancho "+ancho+"\n"+"Largo "+largo+"\n"+"Estado "+Estado;
     }
     

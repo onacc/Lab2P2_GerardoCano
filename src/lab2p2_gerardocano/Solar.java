@@ -35,6 +35,6 @@ public class Solar {
         this.largo = largo;
     }
     public String toString(){
-        return "Ancho"+ancho+"\n"+"Largo"+largo+"\n";
+        return "Solar "+" Ancho "+ancho+"\n"+"Largo "+largo+"\n";
     }
 }

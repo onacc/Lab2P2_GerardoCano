@@ -29,6 +29,8 @@ static Scanner read = new Scanner (System.in);
         //System.out.println(u);
         int log;
         do{
+        System.out.println("");
+        System.out.println("Menu Principal");
         System.out.println("Bienvenido");
         System.out.println("1.Login");
         System.out.println("2.Sign up");
@@ -55,16 +57,15 @@ static Scanner read = new Scanner (System.in);
             op = read.nextInt();
             switch(op){
                 case 1:
-                    System.out.println("Ingrese contraseña de administrador");
-                    String passi = read.next();
-                    if(passi.equals(u.getContra())){
+                
+                    
                         
                         System.out.println("Ingrese una opcion");
                         System.out.println("1.Crear Casas/Edificios/Solares");
                         System.out.println("2.Listar Casas/Edificios/Solares");
                         System.out.println("3.Modificar Casas/Edficios/Solares");
                         System.out.println("4.Borrar Casas/Edficios/Solares");
-                        System.out.println("5.Vender Casas/Edficios/Solares");
+                        System.out.println("5.Comprar Casas/Edficios/Solares");
                         int ops = read.nextInt();
                         switch(ops){
                             case 1:{
@@ -123,7 +124,7 @@ static Scanner read = new Scanner (System.in);
                                         System.out.println(Solar);
                                     break;
                                     case 4:
-                                        System.out.println(builds);
+                                        printlist(builds);
                                     break;
                                 }
                             }    
@@ -243,18 +244,26 @@ static Scanner read = new Scanner (System.in);
                                     break;
                                 }
                             }
-                            break;
+                            
                         }
-                    }else{
-                        System.out.println("Contraseña incorrecta ");
-                    }
+
+                    
                 break;
                 case 2:
-                    System.out.println("Ingrese el indice del inmueble que desea modificar");
+                     System.out.println("Ingrese contraseña de administrador");
+                    String passi = read.next();
+                    if(passi.equals(u.getContra())){
+                    System.out.println("Ingrese el indice del inmueble que desea agregar un estado");
+                    printlist(builds);
                     int papa = read.nextInt(); //man ya me quede sin nombre de variables
                     
                     for (Object j : builds) {
-                        
+                        if(j instanceof Casa ){
+                            
+                        }
+                    }
+                    }else{
+                        System.out.println("Contrasena ingresada incorrecta");
                     }
                 break;
                 case 3:
@@ -313,6 +322,7 @@ static Scanner read = new Scanner (System.in);
     }
     static Usuario newUsuario(){
         System.out.println("Ingrese nombre");
+        
         String nombre = read.next();
         System.out.println("Ingrese edad");
         int e = read.nextInt();
@@ -333,6 +343,12 @@ static Scanner read = new Scanner (System.in);
         }
         }
         return verf;
+    }
+    static void printlist(ArrayList builds){
+        for (int i = 0; i < builds.size(); i++) {
+            System.out.println(i+". "+builds.get(i));
+            System.out.println("");
+        }
     }
     
 }

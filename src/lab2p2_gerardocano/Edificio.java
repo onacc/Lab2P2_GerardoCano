@@ -54,6 +54,6 @@ public class Edificio {
         this.estado = estado;
     }
     public String toString(){
-        return "Numero de Pisos "+numpisos+"\n"+"Numero de Locales "+locales+"\n"+direccion+"\n"+"Estado "+estado;
+        return "Edificio "+" Numero de Pisos "+numpisos+"\n"+"Numero de Locales "+locales+"\n"+direccion+"\n"+"Estado "+estado;
     }
 }
