@@ -266,10 +266,24 @@ static Scanner read = new Scanner (System.in);
                                         }else{
                                              System.out.println("La posicion entregada no es valida");
                                     }
+                        }
                             if(j instanceof Edificio){
+                                if( papa>=0& papa<builds.size()&&builds.get(papa)instanceof Edificio ){
+                                            System.out.println("Ingrese el estado del Edificio");
+                                            String estate = read.next();
+                                            ((Edificio)builds.get(papa)).setEstado(estate);
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
                                 
                             }
-                        }
+                            if(j instanceof Solar){
+                                if( papa>=0& papa<builds.size()&&builds.get(papa)instanceof Solar ){
+                                           System.out.println("El elemento elegido es un solar");
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }}
+                        
                     }
                     }else{
                         System.out.println("Contrasena ingresada incorrecta");
