@@ -140,14 +140,22 @@ static Scanner read = new Scanner (System.in);
                                         System.out.println("Ingrese la posicion a modificar");
                                         int p = read.nextInt();
                                         if( p>=0& p<builds.size()&&builds.get(p)instanceof Casa ){
-                                            
+                                            builds.set(p, newCasa());
                                         }else{
                                             System.out.println("La posicion no es valida");
                                         }
                                     break;
                                     case 2:
+                                        System.out.println("Ingrese la posicion a modificar");
+                                         p = read.nextInt();
+                                        if( p>=0& p<builds.size()&&builds.get(p)instanceof Edificio ){
+                                            builds.set(p, newEdificio());}
                                     break;
                                     case 3:
+                                    System.out.println("Ingrese la posicion a modificar");
+                                         p = read.nextInt();
+                                        if( p>=0& p<builds.size()&&builds.get(p)instanceof Solar ){
+                                            builds.set(p, newSolar());}
                                     break;
                                 }
                             }
@@ -196,17 +204,42 @@ static Scanner read = new Scanner (System.in);
                             break;
                             case 5:{
                                  int o=0;
-                                System.out.println("Desea Crear...");
+                                System.out.println("Desea Comprar...");
                                 System.out.println("1.Casas");
                                 System.out.println("2.Edificios");
                                 System.out.println("3.Solares");
                                 o = read.nextInt();
                                 switch (o){
-                                    case 1:
+                                   case 1:
+                                        System.out.println("Ingrese la posicion de casa a eliminar ");
+                                        int posi = read.nextInt();
+                                         if( posi>=0& posi<builds.size()&&builds.get(posi)instanceof Casa ){
+                                            builds.remove(posi);
+                                             System.out.println("Elemento Comprado");
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
                                     break;
                                     case 2:
+                                        System.out.println("Ingrese la posicion de edificio a eliminar ");
+                                        int pos = read.nextInt();
+                                         if( pos>=0& pos<builds.size()&&builds.get(pos)instanceof Edificio ){
+                                            builds.remove(pos);
+                                             System.out.println("Eliminado comprado");
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
                                     break;
                                     case 3:
+                                        System.out.println("Ingrese la posicion de solar a eliminar ");
+                                        int popo = read.nextInt();
+                                         if( popo>=0& popo<builds.size()&&builds.get(popo)instanceof Solar ){
+                                            builds.remove(popo);
+                                             System.out.println("Elemento comprado");
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
+
                                     break;
                                 }
                             }
@@ -217,11 +250,17 @@ static Scanner read = new Scanner (System.in);
                     }
                 break;
                 case 2:
+                    System.out.println("Ingrese el indice del inmueble que desea modificar");
+                    int papa = read.nextInt(); //man ya me quede sin nombre de variables
+                    
+                    for (Object j : builds) {
+                        
+                    }
                 break;
                 case 3:
                      System.out.println("Salir");
             }
-        }while(op!=5);
+        }while(op!=3);
                     }else{
                         System.out.println("Usuario invalido");
                     }
