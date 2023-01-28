@@ -212,7 +212,7 @@ static Scanner read = new Scanner (System.in);
                                 o = read.nextInt();
                                 switch (o){
                                    case 1:
-                                        System.out.println("Ingrese la posicion de casa a eliminar ");
+                                        System.out.println("Ingrese la posicion de casa a comprar ");
                                         int posi = read.nextInt();
                                          if( posi>=0& posi<builds.size()&&builds.get(posi)instanceof Casa ){
                                             builds.remove(posi);
@@ -222,17 +222,17 @@ static Scanner read = new Scanner (System.in);
                                     }
                                     break;
                                     case 2:
-                                        System.out.println("Ingrese la posicion de edificio a eliminar ");
+                                        System.out.println("Ingrese la posicion de edificio a comprar ");
                                         int pos = read.nextInt();
                                          if( pos>=0& pos<builds.size()&&builds.get(pos)instanceof Edificio ){
                                             builds.remove(pos);
-                                             System.out.println("Eliminado comprado");
+                                             System.out.println("Elemento comprado");
                                         }else{
                                              System.out.println("La posicion entregada no es valida");
                                     }
                                     break;
                                     case 3:
-                                        System.out.println("Ingrese la posicion de solar a eliminar ");
+                                        System.out.println("Ingrese la posicion de solar a comprar ");
                                         int popo = read.nextInt();
                                          if( popo>=0& popo<builds.size()&&builds.get(popo)instanceof Solar ){
                                             builds.remove(popo);
@@ -255,11 +255,20 @@ static Scanner read = new Scanner (System.in);
                     if(passi.equals(u.getContra())){
                     System.out.println("Ingrese el indice del inmueble que desea agregar un estado");
                     printlist(builds);
-                    int papa = read.nextInt(); //man ya me quede sin nombre de variables
+                    int papa = read.nextInt(); 
                     
                     for (Object j : builds) {
                         if(j instanceof Casa ){
-                            
+                            if( papa>=0& papa<builds.size()&&builds.get(papa)instanceof Casa ){
+                                            System.out.println("Ingrese el estado de la casa");
+                                            String estate = read.next();
+                                            ((Casa)builds.get(papa)).setEstado(estate);
+                                        }else{
+                                             System.out.println("La posicion entregada no es valida");
+                                    }
+                            if(j instanceof Edificio){
+                                
+                            }
                         }
                     }
                     }else{
